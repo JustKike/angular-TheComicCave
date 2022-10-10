@@ -1,0 +1,14 @@
+<mat-toolbar color="accent" *ngIf="_lc.usuario.uid">
+  <span>TheComicCave</span>
+  <!-- alinear a la derecha -->
+  <span class="example-spacer"></span>
+  <!-- Botones Centrados -->
+  <button mat-button routerLink="/comics">Comics</button>
+  <button mat-button routerLink="/foro">Foro</button>
+  <button mat-button routerLink="/shared">About</button>
+  <!-- alinear a la derecha -->
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" (click)="_lc.logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

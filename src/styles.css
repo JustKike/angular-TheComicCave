@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+/* Footer */
+.footer{
+    padding: 20px 0;
+    background: #252525;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    color:white;
+}
+.chat-box{
+    border-color: rgb(251, 251, 251);
+    border-style: outset;
+    box-shadow: 0 4px 17px rgb(253, 253, 252);
+}
+
+/* Chat */
+.chat{
+  overflow-y: scroll;
+    height: 270px;
+    padding: 5px;
+}
+.ancho{
+  height: 100%;
+}
+.puntero {
+  cursor: pointer;
+}
+.efectMsj:not(.highlight-card):hover {
+  transform: translateY(-3px);
+  border-radius: 4px;
+  padding: 3px;
+  cursor: pointer;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+/* boton flotante */
+.btn-flotante {
+  position: fixed;
+  bottom: 50px;
+  right: 40px;
+  transition: all 300ms ease 0ms;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.622)
+}
+
+.btn-hover:not(.highlight-card):hover {
+  border-color: rgb(251, 251, 251);
+  border-style: outset;
+  box-shadow: 0 4px 17px rgb(253, 253, 252);
+}

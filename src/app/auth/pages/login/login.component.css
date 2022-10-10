@@ -1,0 +1,44 @@
+.body{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url('../../../../assets/img/comic-book3.jpg');
+}
+.login{
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    background-color: #fefefeb0;
+}
+.user-img{
+    width: 50%;
+}
+.seleccion:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    border-color: rgb(251, 251, 251);
+    border-style: outset;
+    box-shadow: 0 4px 17px rgb(253, 253, 252);
+}
+.ancho{
+    width: 80%;
+}
+.botton{
+    height: 50px;
+}
+.footerLogin{
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.615);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.spinner{
+    margin: 0 auto;
+}
+.icon-pull-right{
+    margin-top: 2%;
+    float: right;
+}

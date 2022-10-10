@@ -1,0 +1,158 @@
+<!-- Button trigger modal -->
+<div class="btn-flotante rounded-circle btn-hover" *ngIf="_lc.usuario.uid">
+  <button
+    mat-icon-button
+    type="button"
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with chat icon"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    <mat-icon>chat</mat-icon>
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade modal-md"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content chat-box">
+      <!-- cabeza del modal -->
+      <div class="modal-header bg-dark">
+        <h2 class="modal-title text-white" id="exampleModalLabel">
+          The ComicCave Messenger
+        </h2>
+        <button
+          type="button"
+          class="btn-close bg-secondary"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <!-- cuerpo del modal -->
+      <div class="modal-body p-2 text-dark text-wrap chat" id="app-mensajes">
+        <div class="container" *ngFor="let chat of _cs.chats">
+          <!-- row  para el msj del usuario con sesion iniciada -->
+          <div class="row" *ngIf="_lc.usuario.uid == chat.uid">
+            <div class="col">
+              <small
+                type="date"
+                id="helpId"
+                class="form-text text-muted"
+                [ngClass]="{ 'text-end': _lc.usuario.uid != chat.uid }"
+              >
+                {{ chat.fecha | date: "yyyy/MM/dd h:mm:ss a" }}
+              </small>
+            </div>
+            <!-- columna 2 -->
+            <div
+              class="col"
+              [ngClass]="{ 'text-end': _lc.usuario.uid == chat.uid }"
+            >
+              <img
+                src="{{ chat.photo }}"
+                class="rounded-circle"
+                alt="Cinque Terre"
+                width="30"
+                height="30"
+                *ngIf="_lc.usuario.photo"
+              />
+              <span
+                class="badge rounded-pill"
+                [ngClass]="{
+                  'bg-primary': _lc.usuario.uid == chat.uid,
+                  'bg-success': _lc.usuario.uid != chat.uid
+                }"
+              >
+                {{ chat.nombre }}
+              </span>
+            </div>
+          </div>
+
+          <!-- row  para el msj del usuario externo -->
+          <div class="row" *ngIf="_lc.usuario.uid != chat.uid">
+            <!-- columna 2 -->
+            <div
+              class="col"
+              [ngClass]="{ 'text-end': _lc.usuario.uid == chat.uid }"
+            >
+              <img
+                src="{{ chat.photo }}"
+                class="rounded-circle"
+                alt="Cinque Terre"
+                width="30"
+                height="30"
+                *ngIf="_lc.usuario.photo"
+              />
+              <span
+                class="badge rounded-pill"
+                [ngClass]="{
+                  'bg-primary': _lc.usuario.uid == chat.uid,
+                  'bg-success': _lc.usuario.uid != chat.uid
+                }"
+              >
+                {{ chat.nombre }}
+              </span>
+            </div>
+            <!-- columna 1 -->
+            <div class="col">
+              <small
+                type="date"
+                id="helpId"
+                class="form-text text-muted float-end"
+              >
+                {{ chat.fecha | date: "yyyy/MM/dd h:mm:ss a" }}
+              </small>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              class="col"
+              [ngClass]="{ 'text-end': _lc.usuario.uid == chat.uid }"
+            >
+              <p>
+                {{ chat.mensaje }}
+              </p>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div class="modal-footer bg-dark">
+        <form
+          class="input-group"
+          [formGroup]="formularioDeChat"
+          (ngSubmit)="enviar_mensaje()"
+        >
+          <textarea
+            class="form-control form-control-sm"
+            aria-label="With textarea"
+            placeholder="Escribe algo aqui..."
+            name="mensaje"
+            formControlName="mensaje"
+            required
+          ></textarea>
+          <span class="input-group-text bg-primary" id="basic-addon2">
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Messsage icon"
+              type="submit"
+              [disabled]="formularioDeChat.invalid"
+            >
+              <mat-icon>chat</mat-icon>
+            </button>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

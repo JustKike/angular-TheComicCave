@@ -1,0 +1,74 @@
+<div class="body">
+  <mat-progress-spinner
+    *ngIf="loading"
+    class="spinner"
+    [diameter]="diameter"
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+  >
+  </mat-progress-spinner>
+  <mat-card *ngIf="!loading" class="login seleccion">
+    <form [formGroup]="form" (ngSubmit)="initSesion()">
+      <img src="./assets/img/usuario.png" class="user-img" alt="User image" />
+      <h1><b>Login</b></h1>
+      <!-- usuario input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Usuario</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="usuario"
+          placeholder="Ingresa el usuario"
+        />
+      </mat-form-field>
+      <!-- usuario contraseña -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Contraseña</b></mat-label>
+        <input
+          matInput
+          type="password"
+          name=""
+          autocomplete="off"
+          formControlName="password"
+          placeholder="Ingresa la contraseña"
+        />
+      </mat-form-field>
+      <br />
+      <!-- botones -->
+      <button
+        type="submit"
+        mat-raised-button
+        class="botton ancho"
+        color="primary"
+        [disabled]="form.invalid"
+      >
+        Ingresar <mat-icon class="icon-pull-right">login</mat-icon>
+      </button>
+      <!-- inciar sesion con google -->
+      <div class="btn-group btn-group-justified mt-3 ancho" role="group">
+        <a class="btn btn-outline-danger" (click)="ingresar('google')">
+          <b>Google</b><i class="fa fa-google icon-pull-right"></i>
+        </a>
+        <!-- inciar sesion con faceebok -->
+        <a class="btn btn-outline-primary" (click)="ingresar('facebook')">
+          <b>Facebook</b><i class="fa fa-facebook-square icon-pull-right"></i>
+        </a>
+      </div>
+      <!-- footer -->
+      <mat-card-footer class="footerLogin">
+        Que esperas!...
+        <button
+          type="button"
+          mat-button
+          color="accent"
+          routerLink="/auth/registro"
+        >
+          Registrate
+        </button>
+      </mat-card-footer>
+    </form>
+  </mat-card>
+</div>

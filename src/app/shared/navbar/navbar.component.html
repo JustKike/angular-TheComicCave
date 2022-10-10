@@ -8,7 +8,27 @@
   <button mat-button routerLink="/shared">About</button>
   <!-- alinear a la derecha -->
   <span class="example-spacer"></span>
-  <button mat-raised-button color="primary" (click)="_lc.logout()">
+  <div class="card">
+    <div class="badge bg-dark">
+      <img
+        src="{{ usuario.url }}"
+        class="rounded-circle"
+        id="user-photo"
+        alt=""
+        width="30"
+        height="30"
+      />
+      <small
+        *ngIf="_lc.usuario.email"
+        id=""
+        class="form-text text-white mx-3"
+        [ngClass]="{ 'text-capitalize': _lc.usuario.nombre != null }"
+      >
+        {{ datos }}
+      </small>
+    </div>
+  </div>
+  <button mat-raised-button class="mx-3" color="primary" (click)="_lc.logout()">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>

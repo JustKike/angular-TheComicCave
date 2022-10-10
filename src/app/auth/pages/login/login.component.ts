@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.form = this.fb.group({
-      usuario: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
@@ -42,14 +42,26 @@ export class LoginComponent implements OnInit {
   }
 
   initSesion() {
-    const usuario = this.form.value.usuario;
-    const password = this.form.value.password;
-
-    if (usuario == 'jcervantes' && password == 'j12345') {
-      console.log("Bienvenido Usuario: ", usuario);
-      this.fakeloading();
+    // Nos aseguramos que el formulario es valido
+    if (this.form.valid) {
+      //enviamos los datos del formulario al servicio de login con fire Auth
+      this._lc.loginWithFirebaseAuth(this.form.value)
+        // Gestionamos la promesa
+        .then(() => {
+          //animacion y redireccion al contenido
+          this.loading = true;
+          setTimeout(() => {
+            this.form.reset();
+            this.router.navigate(['/comics']);
+          }, 1500)
+        })
+        .catch(error => {
+          this.form.reset();
+          console.log(error);
+        });
     } else {
-      //Mostramos un msj de error
+      //Mostramos un msj de error si el formualario no es valido
+      console.log("Todos los campos deben estar registrados");
       this.error();
       this.form.reset();
     }
@@ -65,14 +77,6 @@ export class LoginComponent implements OnInit {
 
   ingresar(proveedor: string) {
     this._lc.login(proveedor);
-  }
-
-  fakeloading() {
-    this.loading = true;
-    setTimeout(() => {
-      this.form.reset();
-      this.router.navigate(['/comics']);
-    }, 1500)
   }
 
 }

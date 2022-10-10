@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
@@ -12,6 +13,7 @@ export class LoginService {
 
   constructor(
     public auth: AngularFireAuth,
+    public _auth: Auth,
     private router: Router,
   ) {
     this.auth.authState.subscribe(user => {
@@ -22,7 +24,16 @@ export class LoginService {
       this.usuario.nombre = user.displayName;
       this.usuario.uid = user.uid;
       this.usuario.photo = user.photoURL;
+      this.usuario.email = user.email;
     });
+  }
+
+  register({ email, password }: any) {
+    return createUserWithEmailAndPassword(this._auth, email, password);
+  }
+
+  loginWithFirebaseAuth({ email, password }: any) {
+    return signInWithEmailAndPassword(this._auth, email, password);
   }
 
   login(proveedor: string) {

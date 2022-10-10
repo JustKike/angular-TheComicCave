@@ -58,3 +58,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-style: outset;
   box-shadow: 0 4px 17px rgb(253, 253, 252);
 }
+.titulo-orange{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color:orange;
+}
+.titulo-red {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: rgb(124, 11, 11);
+}
+.text-shadow{
+  text-shadow: 2px 2px 2px rgb(0, 0, 0),
+  0px 4px 1px rgba(0, 0, 0, 0.5),
+  4px 4px 5px rgba(0, 0, 0, 0.7),
+  0px 0px 7px rgba(0, 0, 0, 0.4);
+}

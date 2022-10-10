@@ -17,6 +17,9 @@
 .user-img{
     width: 50%;
 }
+.user-img2 {
+    width: 30%;
+}
 .seleccion:not(.highlight-card):hover {
     transform: translateY(-3px);
     border-color: rgb(251, 251, 251);
@@ -41,4 +44,14 @@
 .icon-pull-right{
     margin-top: 2%;
     float: right;
+}
+.imagen-blur{
+    filter: blur(5px);
+}
+.seleccion:not(.highlight-card):hover .imagen-hover {
+    filter: blur(0px);
+    transform: translateY(-3px);
+    border-color: rgb(251, 251, 251);
+    border-style: outset;
+    box-shadow: 0 4px 17px rgb(253, 253, 252);
 }

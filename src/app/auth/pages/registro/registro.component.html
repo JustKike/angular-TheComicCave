@@ -1,10 +1,74 @@
-<p>registro works!</p>
-<button
-  type="button"
-  mat-raised-button
-  class="botton ancho"
-  color="primary"
-  routerLink="/auth"
->
-  Login <mat-icon class="icon-pull-right">login</mat-icon>
-</button>
+<div class="body">
+  <mat-progress-spinner
+    *ngIf="loading"
+    class="spinner"
+    [diameter]="diameter"
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+  >
+  </mat-progress-spinner>
+  <mat-card class="login seleccion" *ngIf="!loading">
+    <form [formGroup]="formRegister" (ngSubmit)="register()">
+      <img
+        src="./assets/img/watchmen-pin.png"
+        class="rounded-circle imagen-blur imagen-hover my-4"
+        alt="User image"
+        width="150"
+        height="150"
+      />
+      <h1 class="titulo-orange text-shadow"><b>Registro de Usuario</b></h1>
+      <!-- usuario input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Usuario</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="email"
+          placeholder="Ingresa el email"
+        />
+      </mat-form-field>
+      <!-- usuario contraseña -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Contraseña</b></mat-label>
+        <input
+          matInput
+          type="password"
+          name=""
+          autocomplete="off"
+          formControlName="password"
+          placeholder="Ingresa la contraseña"
+        />
+      </mat-form-field>
+      <br />
+      <!-- botones -->
+      <button
+        type="submit"
+        mat-raised-button
+        class="botton ancho mb-3"
+        color="primary"
+        [disabled]="formRegister.invalid"
+      >
+        Registrar <mat-icon class="icon-pull-right">person_add</mat-icon>
+      </button>
+      <button
+        type="button"
+        mat-raised-button
+        class="botton ancho mb-3"
+        color="accent"
+        routerLink="/login"
+      >
+        Cancelar <mat-icon class="icon-pull-right">cancel</mat-icon>
+      </button>
+      <!-- footer -->
+      <mat-card-footer class="footerLogin">
+        <br />
+        <small id="" class="form-text text-muted my-5">
+          Gracias por formar parte de nuestra Familia!...
+        </small>
+      </mat-card-footer>
+    </form>
+  </mat-card>
+</div>

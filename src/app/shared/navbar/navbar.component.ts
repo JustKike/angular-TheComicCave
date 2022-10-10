@@ -11,9 +11,37 @@ import { LoginService } from 'src/app/shared/providers/login.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public _lc: LoginService) { }
+  public usuario: any = {};
+  public datos: any;
 
-  ngOnInit(): void {
+  constructor(public _lc: LoginService) {
+    this._lc.auth.authState.subscribe(user => {
+      console.log('Estado del usuario:', user);
+      if (!user) {
+        return;
+      }
+      this.getUserName(user.displayName, user.email);
+      this.getUserPhoto(user.photoURL);
+
+    });
+  }
+
+  ngOnInit(): void { }
+
+  getUserPhoto(photo: any) {
+    if (photo == null) {
+      return this.usuario.url = './assets/img/watchmen-pin.png';
+    } else {
+      return this.usuario.url = this._lc.usuario.photo;
+    }
+  }
+
+  getUserName(name: any, email: any) {
+    if (name == null) {
+      this.datos = email;
+    } else {
+      this.datos = name;
+    }
   }
 
 }

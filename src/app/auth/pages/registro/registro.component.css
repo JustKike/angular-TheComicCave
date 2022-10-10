@@ -1,0 +1,63 @@
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("../../../../assets/img/Rorschach-fondo.jpg"); */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  url("../../../../assets/img/Rorschach-fondo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+.login {
+  width: 100%;
+  max-width: 330px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 6px;
+  background-color: #fefefeb0;
+}
+.user-img {
+  width: 50%;
+}
+.seleccion:not(.highlight-card):hover {
+  transform: translateY(-3px);
+  border-color: rgb(251, 251, 251);
+  border-style: outset;
+  box-shadow: 0 4px 17px rgb(253, 253, 252);
+}
+.ancho {
+  width: 80%;
+}
+.botton {
+  height: 50px;
+}
+.footerLogin {
+  margin-top: 10px;
+  background-color: rgba(255, 255, 255, 0.615);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.spinner {
+  margin: 0 auto;
+}
+.icon-pull-right {
+  margin-top: 2%;
+  float: right;
+}
+.imagen-blur{
+  filter: blur(5px);
+}
+/* .imagen-hover:hover {
+  filter: blur(0px);
+} */
+
+.seleccion:not(.highlight-card):hover .imagen-hover {
+  filter: blur(0px);
+  transform: translateY(-3px);
+  border-color: rgb(251, 251, 251);
+  border-style: outset;
+  box-shadow: 0 4px 17px rgb(253, 253, 252);
+}

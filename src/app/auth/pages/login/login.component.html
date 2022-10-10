@@ -10,18 +10,22 @@
   </mat-progress-spinner>
   <mat-card *ngIf="!loading" class="login seleccion">
     <form [formGroup]="form" (ngSubmit)="initSesion()">
-      <img src="./assets/img/usuario.png" class="user-img" alt="User image" />
-      <h1><b>Login</b></h1>
+      <img
+        src="./assets/img/Batfleck.gif"
+        class="card-img-top imagen-blur imagen-hover rounded-4 mb-3"
+        alt="User image"
+      />
+      <h1 class="titulo-red text-shadow"><b>THE COMICCAVE</b></h1>
       <!-- usuario input -->
       <mat-form-field class="ancho" appearance="fill">
-        <mat-label><b>Usuario</b></mat-label>
+        <mat-label><b>Correo</b></mat-label>
         <input
           matInput
           type="text"
           name=""
           autocomplete="off"
-          formControlName="usuario"
-          placeholder="Ingresa el usuario"
+          formControlName="email"
+          placeholder="Ingresa el correo"
         />
       </mat-form-field>
       <!-- usuario contraseña -->

@@ -72,3 +72,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   4px 4px 5px rgba(0, 0, 0, 0.7),
   0px 0px 7px rgba(0, 0, 0, 0.4);
 }
+.warning {
+  background-color: rgba(186, 9, 9, 0.537);
+  color:rgb(253, 253, 252);
+  text-align: center;
+}
+.primary {
+  background-color: rgba(18, 47, 120, 0.597);
+  color: rgb(253, 253, 252);
+  text-align: center;
+}

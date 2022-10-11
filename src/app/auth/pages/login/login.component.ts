@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 
 // providers
 import { LoginService } from 'src/app/shared/providers/login.service';
+import { InteractionService } from 'src/app/shared/providers/interaction.service';
 
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _snackBar: MatSnackBar,
     public _lc: LoginService,
+    public _interaction: InteractionService,
     private router: Router
   ) {
     this.form = this.fb.group({
@@ -49,15 +49,18 @@ export class LoginComponent implements OnInit {
         // Gestionamos la promesa
         .then(() => {
           //animacion y redireccion al contenido
+          var response = 'Bienvenido ' + this.form.value.email;
           this.loading = true;
           setTimeout(() => {
             this.form.reset();
             this.router.navigate(['/comics']);
+            this._interaction.mensaje(response);
           }, 1500)
         })
         .catch(error => {
           this.form.reset();
           console.log(error);
+          this._interaction.mensajeError(error.message);
         });
     } else {
       //Mostramos un msj de error si el formualario no es valido
@@ -68,11 +71,7 @@ export class LoginComponent implements OnInit {
   }
 
   error() {
-    this._snackBar.open('Usuario o Contraseña ingresados invalidos!', 'cerrar', {
-      duration: 5000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom'
-    })
+    this._interaction.mensajeError('Usuario o Contraseña ingresados invalidos!');
   }
 
   ingresar(proveedor: string) {

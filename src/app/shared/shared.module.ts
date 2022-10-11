@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 //services or providers
 import { ChatService } from './providers/chat.service';
 import { LoginService } from './providers/login.service';
+import { InteractionService } from './providers/interaction.service';
 
 
 //Angular Material
@@ -29,6 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
   ],
   providers: [
     ChatService,
-    LoginService
+    LoginService,
+    InteractionService
   ]
 })
 export class SharedModule { }

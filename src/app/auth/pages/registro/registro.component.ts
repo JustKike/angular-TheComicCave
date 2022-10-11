@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { InteractionService } from 'src/app/shared/providers/interaction.service';
 import { LoginService } from 'src/app/shared/providers/login.service';
 
 @Component({
@@ -24,8 +24,8 @@ export class RegistroComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _snackBar: MatSnackBar,
     public _lc: LoginService,
+    public _interaction: InteractionService,
     private router: Router
   ) {
     this.formRegister = this.fb.group({
@@ -44,13 +44,19 @@ export class RegistroComponent implements OnInit {
       this._lc.register(this.formRegister.value)
         .then(() => {
           //animacion y redireccion al login
+          var response = 'Correo registrado con exito: ' + this.formRegister.value.email;
           this.loading = true;
           setTimeout(() => {
             this.formRegister.reset();
-            this.router.navigate(['/login']);
+            this.router.navigate(['/comics']);
+            this._interaction.mensaje(response);
           }, 1500)
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          this.formRegister.reset();
+          console.log(error);
+          this._interaction.mensajeError(error.message);
+        });
     } else {
       //Mostramos un msj de error
       this.error();
@@ -59,11 +65,7 @@ export class RegistroComponent implements OnInit {
   }
 
   error() {
-    this._snackBar.open('Usuario o Contraseña ingresados invalidos!', 'cerrar', {
-      duration: 5000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom'
-    })
+    this._interaction.mensajeError('Usuario o Contraseña registrados invalidos!');
   }
 
 }

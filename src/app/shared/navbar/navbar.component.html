@@ -3,6 +3,8 @@
   <!-- alinear a la derecha -->
   <span class="example-spacer"></span>
   <!-- Botones Centrados -->
+  <button mat-button routerLink="/usuarios">Usuarios</button>
+  <button mat-button routerLink="/perfil">Perfil</button>
   <button mat-button routerLink="/comics">Comics</button>
   <button mat-button routerLink="/foro">Foro</button>
   <button mat-button routerLink="/shared">About</button>
@@ -11,7 +13,7 @@
   <div class="card">
     <div class="badge bg-dark">
       <img
-        src="{{ usuario.url }}"
+        [src]="userInfo.photo || './assets/img/watchmen-pin.png'"
         class="rounded-circle"
         id="user-photo"
         alt=""
@@ -19,12 +21,11 @@
         height="30"
       />
       <small
-        *ngIf="_lc.usuario.email"
         id=""
         class="form-text text-white mx-3"
         [ngClass]="{ 'text-capitalize': _lc.usuario.nombre != null }"
       >
-        {{ datos }}
+        {{ userInfo.name || userInfo.email }}
       </small>
     </div>
   </div>

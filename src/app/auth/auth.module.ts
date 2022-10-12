@@ -11,8 +11,6 @@ import { SharedModule } from '../shared/shared.module';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 
-
-
 @NgModule({
   declarations: [
     RegistroComponent,

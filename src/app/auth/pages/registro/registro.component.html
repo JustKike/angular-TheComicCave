@@ -10,14 +10,33 @@
   </mat-progress-spinner>
   <mat-card class="login seleccion" *ngIf="!loading">
     <form [formGroup]="formRegister" (ngSubmit)="register()">
-      <img
-        src="./assets/img/watchmen-pin.png"
-        class="rounded-circle imagen-blur imagen-hover my-4"
-        alt="User image"
-        width="150"
-        height="150"
-      />
       <h1 class="titulo-orange text-shadow"><b>Registro de Usuario</b></h1>
+      <!-- nombre input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Nombre</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="name"
+          placeholder="Ingresa tu nombre"
+        />
+      </mat-form-field>
+
+      <!-- edad input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Fecha de nacimiento</b></mat-label>
+        <input
+          matInput
+          type="date"
+          name=""
+          autocomplete="off"
+          formControlName="birthDate"
+          placeholder="Fecha de nacimiento"
+        />
+      </mat-form-field>
+
       <!-- usuario input -->
       <mat-form-field class="ancho" appearance="fill">
         <mat-label><b>Correo</b></mat-label>
@@ -62,13 +81,6 @@
       >
         Cancelar <mat-icon class="icon-pull-right">cancel</mat-icon>
       </button>
-      <!-- footer -->
-      <mat-card-footer class="footerLogin">
-        <br />
-        <small id="" class="form-text text-muted my-5">
-          Gracias por formar parte de nuestra Familia!...
-        </small>
-      </mat-card-footer>
     </form>
   </mat-card>
 </div>

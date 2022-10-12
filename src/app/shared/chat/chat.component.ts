@@ -16,7 +16,8 @@ export class ChatComponent implements OnInit {
   formularioDeChat: FormGroup;
   loading = false;
   elemento: any;
-  usuario: any = {};
+  public usuario: any = {};
+  public datos: any;
 
   constructor(
     public formulario: FormBuilder,
@@ -37,12 +38,29 @@ export class ChatComponent implements OnInit {
           this.elemento.scrollTop = this.elemento.scrollHeight;
         }, 20);
       });
+      this.getUserName(user);
+      this.getUserPhoto(user);
     });
-
   }
 
   ngOnInit(): void {
     this.elemento = document.getElementById('app-mensajes');
+  }
+
+  getUserPhoto(user: any) {
+    if (user?.photoURL) {
+      return this.usuario.url = user.photoURL;
+    } else {
+      return this.usuario.url = './assets/img/watchmen-pin.png';
+    }
+  }
+
+  getUserName(user: any) {
+    if (user?.name) {
+      return this.datos = user.name;
+    } else {
+      return this.datos = user.email;
+    }
   }
 
   enviar_mensaje(): any {

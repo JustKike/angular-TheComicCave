@@ -8,6 +8,16 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
+    path: 'usuarios',
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/auth']))
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./profiles/profiles.module').then(m => m.ProfilesModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/auth']))
+  },
+  {
     path: 'comics',
     loadChildren: () => import('./comics/comics.module').then(m => m.ComicsModule),
     ...canActivate(() => redirectUnauthorizedTo(['/auth']))

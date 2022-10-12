@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 
   public usuario: any = {};
   public datos: any;
+  public userInfo: any = {};
 
   constructor(public _lc: LoginService) {
     this._lc.auth.authState.subscribe(user => {
@@ -20,28 +21,12 @@ export class NavbarComponent implements OnInit {
       if (!user) {
         return;
       }
-      this.getUserName(user.displayName, user.email);
-      this.getUserPhoto(user.photoURL);
-
+      this.userInfo.name = user.displayName;
+      this.userInfo.email = user.email;
+      this.userInfo.photo = user.photoURL;
     });
   }
 
   ngOnInit(): void { }
-
-  getUserPhoto(photo: any) {
-    if (photo == null) {
-      return this.usuario.url = './assets/img/watchmen-pin.png';
-    } else {
-      return this.usuario.url = this._lc.usuario.photo;
-    }
-  }
-
-  getUserName(name: any, email: any) {
-    if (name == null) {
-      this.datos = email;
-    } else {
-      this.datos = name;
-    }
-  }
 
 }

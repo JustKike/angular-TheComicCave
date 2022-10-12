@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import firebase from 'firebase/compat/app';
+
+//modelo
+import { Usuario } from 'src/app/shared/interface/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
+  private itemsCollection!: AngularFirestoreCollection<any>;
+  public users: any[] = [];
   public usuario: any = {};
 
   constructor(
     public auth: AngularFireAuth,
+    private _afs: AngularFirestore,
     private router: Router,
   ) {
     this.auth.authState.subscribe(user => {
-      console.log('Estado del usuario:', user);
+      // console.log('Estado del usuario:', user);
       if (!user) {
         return;
       }
@@ -26,7 +34,9 @@ export class LoginService {
     });
   }
 
-  register({ email, password }: any) {
+  register(datos: any) {
+    const email = datos.value.email;
+    const password = datos.value.password;
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
 
@@ -55,5 +65,11 @@ export class LoginService {
     this.auth.signOut();
     this.router.navigate(['/login']);
   }
+
+  createDoc(data: any, path: string, id: string) {
+    this.itemsCollection = this._afs.collection<any>(path);
+    return this.itemsCollection.doc(id).set(data);
+  }
+
 
 }

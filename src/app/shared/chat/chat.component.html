@@ -49,18 +49,17 @@
                 {{ chat.fecha | date: "yyyy/MM/dd h:mm:ss a" }}
               </small>
             </div>
-            <!-- columna 2 -->
+            <!-- columna 1 usuario logeado -->
             <div
               class="col"
               [ngClass]="{ 'text-end': _lc.usuario.uid == chat.uid }"
             >
               <img
-                src="{{ chat.photo }}"
+                [src]="_lc.usuario.photo || './assets/img/watchmen-pin.png'"
                 class="rounded-circle"
                 alt=""
                 width="30"
                 height="30"
-                *ngIf="_lc.usuario.photo"
               />
               <span
                 class="badge rounded-pill"
@@ -76,18 +75,17 @@
 
           <!-- row  para el msj del usuario externo -->
           <div class="row" *ngIf="_lc.usuario.uid != chat.uid">
-            <!-- columna 2 -->
+            <!-- columna 2 otros usuarios -->
             <div
               class="col"
               [ngClass]="{ 'text-end': _lc.usuario.uid == chat.uid }"
             >
               <img
-                src="{{ chat.photo }}"
+                [src]="chat.photo || './assets/img/watchmen-pin.png'"
                 class="rounded-circle"
                 alt=""
                 width="30"
                 height="30"
-                *ngIf="_lc.usuario.photo"
               />
               <span
                 class="badge rounded-pill"

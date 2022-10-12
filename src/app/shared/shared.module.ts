@@ -30,7 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -53,7 +53,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatToolbarModule,
     MatIconModule,
     SharedRoutingModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatProgressBarModule
   ],
   exports: [
     CommonModule,
@@ -72,7 +73,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatIconModule,
     SharedRoutingModule,
     MatBottomSheetModule,
-    FooterComponent
+    FooterComponent,
+    MatProgressBarModule
   ],
   providers: [
     ChatService,

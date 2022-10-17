@@ -4,14 +4,13 @@
   <span class="example-spacer"></span>
   <!-- Botones Centrados -->
   <button mat-button routerLink="/usuarios">Usuarios</button>
-  <button mat-button routerLink="/perfil">Perfil</button>
   <button mat-button routerLink="/comics">Comics</button>
   <button mat-button routerLink="/foro">Foro</button>
   <button mat-button routerLink="/shared">About</button>
   <!-- alinear a la derecha -->
   <span class="example-spacer"></span>
   <div class="card">
-    <div class="badge bg-dark">
+    <div class="badge bg-dark puntero texto-name" routerLink="/perfil">
       <img
         [src]="userInfo.photo || './assets/img/watchmen-pin.png'"
         class="rounded-circle"

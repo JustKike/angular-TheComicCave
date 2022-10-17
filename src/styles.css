@@ -82,3 +82,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: rgb(253, 253, 252);
   text-align: center;
 }
+.texto-name{
+  /* para interrumpir el parrafo con puntos suspensivos */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    line-height: 100%;
+    /* fallback */
+    max-height: 100%;
+    /* fallback */
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+/* p {
+  font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
+  font-size: 30px;
+  text-align: center;
+  margin: 2rem 3rem 0;
+  color: rgb(10, 10, 10);
+  font-weight: 100;
+  text-shadow: 2px 5px 8px #030000;
+} */

@@ -1,1 +1,58 @@
-<p>profile-main works!</p>
+<div class="body">
+  <mat-card class="login seleccion">
+    <form (ngSubmit)="onSaveUser(form.value)" [formGroup]="form">
+      <div class="container mb-3">
+        <img
+          [src]="currentImage"
+          class="card-img-top imagen img-avatar imagen-blur imagen-hover rounded-circle mt-3"
+          alt="avatar"
+        />
+        <div class="overlay imagen-hover" (click)="selectFile.click()">
+          <p class="text">Seleccionar Imagen</p>
+        </div>
+        <input
+          hidden
+          type="file"
+          id="inputImageProfile"
+          name="file"
+          placeholder="Avatar profile"
+          formControlName="photoURL"
+          (change)="handleImage($any($event).target.files[0])"
+          #selectFile
+        />
+      </div>
+      <mat-card-content>
+        <mat-form-field class="ancho mt-3" appearance="fill">
+          <mat-label> Nombre </mat-label>
+          <input
+            matInput
+            placeholder="Nombre"
+            formControlName="displayName"
+            autocomplete="off"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+          <mat-label> Correo </mat-label>
+          <input
+            matInput
+            placeholder="Correo"
+            formControlName="email"
+            autocomplete="off"
+            readonly
+          />
+        </mat-form-field>
+
+        <button
+          type="submit"
+          mat-raised-button
+          class="botton ancho mb-5"
+          color="primary"
+          [disabled]="form.invalid"
+        >
+          Save <mat-icon class="icon-pull-right">save</mat-icon>
+        </button>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>

@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._lc.checkLogin();
   }
 
   initSesion() {

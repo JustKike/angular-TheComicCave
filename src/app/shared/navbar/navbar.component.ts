@@ -17,10 +17,10 @@ export class NavbarComponent implements OnInit {
 
   constructor(public _lc: LoginService) {
     this._lc.auth.authState.subscribe(user => {
-      console.log('Estado del usuario:', user);
       if (!user) {
         return;
       }
+      console.log('Estado del usuario:', user);
       this.userInfo.name = user.displayName;
       this.userInfo.email = user.email;
       this.userInfo.photo = user.photoURL;

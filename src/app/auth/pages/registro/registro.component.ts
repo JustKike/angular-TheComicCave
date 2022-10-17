@@ -12,6 +12,7 @@ import { InteractionService } from 'src/app/shared/providers/interaction.service
 //interfaces
 import { Usuario } from 'src/app/shared/interface/user.interface';
 import { Observable } from 'rxjs';
+import { UsersService } from 'src/app/shared/providers/users.service';
 
 
 
@@ -38,6 +39,7 @@ export class RegistroComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public _lc: LoginService,
+    public _users: UsersService,
     public _interaction: InteractionService,
     private storage: AngularFireStorage,
     private router: Router
@@ -48,11 +50,14 @@ export class RegistroComponent implements OnInit {
       password: ['', Validators.required],
       birthDate: ['', Validators.required],
       status: 'default',
-      photo: null
+      photo: null,
+      createDate: new Date(),
+      editDate: new Date()
     })
   }
 
   ngOnInit(): void {
+    this._lc.checkLogin();
   }
 
   register() {
@@ -72,7 +77,7 @@ export class RegistroComponent implements OnInit {
               const id = res.user.uid;
               this.formRegister.value.uid = id;
               this.formRegister.value.password = null;
-              this._lc.createDoc(this.formRegister.value, path, id)
+              this._users.createDoc(this.formRegister.value, path, id)
                 .then(() => {
                   console.log('Datos de perfil registrados');
                 })

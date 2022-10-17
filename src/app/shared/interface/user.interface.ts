@@ -1,9 +1,9 @@
 export interface Usuario {
-    name: string;
+    displayName: string;
     email: string;
     password: string;
     birthDate?: string;
     uid?: string;
     status?: 'default' | 'admin',
-    photo?: any;
+    photoURL?: any;
 }

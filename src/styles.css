@@ -96,6 +96,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     -webkit-box-orient: vertical;
 }
 
+.spinner {
+  margin: 0 auto;
+}
+
 /* p {
   font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
   font-size: 30px;

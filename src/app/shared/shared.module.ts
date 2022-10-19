@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ChatService } from './providers/chat.service';
 import { LoginService } from './providers/login.service';
 import { InteractionService } from './providers/interaction.service';
+import { UsersService } from './providers/users.service';
 
 
 //Angular Material
@@ -31,6 +32,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -54,7 +58,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatIconModule,
     SharedRoutingModule,
     MatBottomSheetModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatGridListModule
   ],
   exports: [
     CommonModule,
@@ -74,11 +81,15 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     SharedRoutingModule,
     MatBottomSheetModule,
     FooterComponent,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatGridListModule
   ],
   providers: [
     ChatService,
     LoginService,
+    UsersService,
     InteractionService
   ]
 })

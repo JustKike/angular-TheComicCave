@@ -1,5 +1,6 @@
 <div class="body">
-  <mat-card class="login seleccion">
+  <!-- formulario de perfil -->
+  <mat-card class="login seleccion" *ngIf="registro && !loading">
     <form (ngSubmit)="onSaveUser(form.value)" [formGroup]="form">
       <div class="container mb-3">
         <img
@@ -55,4 +56,80 @@
       </mat-card-content>
     </form>
   </mat-card>
+  <!-- formulario de registro para usuarios de otros proveedores -->
+  <mat-progress-spinner
+    *ngIf="loading"
+    class="spinner"
+    [diameter]="diameter"
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+  >
+  </mat-progress-spinner>
+  <mat-card class="login seleccion" *ngIf="!registro && !loading">
+    <form [formGroup]="formRegister" (ngSubmit)="register()">
+      <h1 class="titulo-orange text-shadow"><b>Registro de Usuario</b></h1>
+      <!-- nombre input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Nombre</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="name"
+          placeholder="Ingresa tu nombre"
+          readonly
+        />
+      </mat-form-field>
+
+      <!-- edad input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Fecha de nacimiento</b></mat-label>
+        <input
+          matInput
+          type="date"
+          name=""
+          autocomplete="off"
+          formControlName="birthDate"
+          placeholder="Fecha de nacimiento"
+        />
+      </mat-form-field>
+
+      <!-- usuario input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Correo</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="email"
+          placeholder="Ingresa el email"
+          readonly
+        />
+      </mat-form-field>
+      <br />
+      <!-- botones -->
+      <button
+        type="submit"
+        mat-raised-button
+        class="botton ancho mb-3"
+        color="primary"
+        [disabled]="formRegister.invalid"
+      >
+        Registrar <mat-icon class="icon-pull-right">person_add</mat-icon>
+      </button>
+      <button
+        type="button"
+        mat-raised-button
+        class="botton ancho mb-3"
+        color="accent"
+        routerLink="/login"
+      >
+        Cancelar <mat-icon class="icon-pull-right">cancel</mat-icon>
+      </button>
+    </form>
+  </mat-card>
+  <!-- termina formulario de registro para usuarios de otros proveedores -->
 </div>

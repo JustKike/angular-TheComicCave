@@ -25,7 +25,7 @@ export class LoginService {
   ) {
     this.data = this.auth.authState;
     this.userData$ = this.data;
-    this.auth.authState.subscribe(user => {
+    this.auth.onAuthStateChanged(user => {
       if (!user) {
         return;
       }

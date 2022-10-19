@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 // providers
 import { LoginService } from 'src/app/shared/providers/login.service';
@@ -16,7 +17,7 @@ export class NavbarComponent implements OnInit {
   public userInfo: any = {};
 
   constructor(public _lc: LoginService) {
-    this._lc.auth.authState.subscribe(user => {
+    this._lc.auth.onAuthStateChanged((user) => {
       if (!user) {
         return;
       }
@@ -28,5 +29,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
 
 }

@@ -1,0 +1,126 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("../../../../assets/img/Rorschach-fondo.jpg"); */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../../../../assets/img/comic-book5.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.seleccion:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    border-color: rgb(251, 251, 251);
+    border-style: outset;
+    box-shadow: 0 4px 17px rgb(253, 253, 252);
+    opacity: 1;
+}
+
+.seleccion:not(.highlight-card):hover .imagen-hover {
+    filter: blur(0px);
+    transform: translateY(-3px);
+    border-color: rgb(251, 251, 251);
+    border-style: outset;
+    box-shadow: 0 4px 17px rgb(253, 253, 252);
+}
+.login {
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    background-color: #fefefeb0;
+}
+.ancho {
+    width: 80%;
+}
+.ancho-m {
+    width: 50%;
+}
+.ancho-s {
+    width: 28%;
+}
+
+.botton {
+    height: 50px;
+}
+.filter-box {
+    opacity: 0.9;
+}
+
+.centrado {
+    align-items: center;
+}
+
+#texto-ellipsis {
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* hover imagen file */
+.container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.imagen {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.overlay {
+    position: absolute;
+    top: 17px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #ba005d;
+    border-radius: 50%;
+    margin-right: 0px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.container:hover .overlay {
+    opacity: 0.8;
+
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* input en table */
+.example-full-width {
+    width: 80%;
+}
+
+td {
+    padding-right: 8px;
+}

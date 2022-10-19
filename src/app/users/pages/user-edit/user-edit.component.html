@@ -1,1 +1,107 @@
-<p>user-edit works!</p>
+<div class="body">
+  <mat-progress-spinner
+    *ngIf="loading"
+    class="spinner"
+    [diameter]="diameter"
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+  >
+  </mat-progress-spinner>
+
+  <mat-card class="login seleccion mb-3" *ngIf="!loading">
+    <form [formGroup]="formEdit" (ngSubmit)="editar(formEdit.value)">
+      <div class="container mb-3">
+        <img
+          [src]="currentImage || defaultImage"
+          class="card-img-top imagen img-avatar imagen-blur imagen-hover rounded-circle mt-3"
+          alt="avatar"
+        />
+        <div class="overlay imagen-hover" (click)="selectFile.click()">
+          <p class="text">Seleccionar Imagen</p>
+        </div>
+        <input
+          hidden
+          type="file"
+          id="inputImageProfile"
+          name="file"
+          placeholder="Avatar profile"
+          formControlName="photoURL"
+          (change)="handleImage($any($event).target.files[0])"
+          #selectFile
+        />
+      </div>
+      <!-- nombre input -->
+      <mat-form-field class="ancho mt-2" appearance="fill">
+        <mat-label><b>Nombre</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="name"
+          placeholder="Ingresa tu nombre"
+        />
+      </mat-form-field>
+
+      <!-- edad input -->
+      <mat-form-field appearance="fill" class="ancho-m">
+        <mat-label><b>Fecha de nacimiento</b></mat-label>
+        <input
+          matInput
+          type="date"
+          name=""
+          autocomplete="off"
+          formControlName="birthDate"
+          placeholder="Fecha de nacimiento"
+        /> </mat-form-field
+      >&nbsp;
+      <!-- edad input -->
+      <mat-form-field appearance="fill" class="ancho-s">
+        <mat-label><b>Status</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="status"
+          placeholder="status"
+          readonly
+        />
+      </mat-form-field>
+      <!-- usuario input -->
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label><b>Correo</b></mat-label>
+        <input
+          matInput
+          type="text"
+          name=""
+          autocomplete="off"
+          formControlName="email"
+          placeholder="Ingresa el email"
+          readonly
+        />
+      </mat-form-field>
+      <br />
+      <!-- botones -->
+      <button
+        type="submit"
+        mat-raised-button
+        class="botton ancho mb-3"
+        color="primary"
+        [disabled]="formEdit.invalid"
+      >
+        Guardar <mat-icon class="icon-pull-right">save</mat-icon>
+      </button>
+      <button
+        type="button"
+        mat-raised-button
+        class="botton ancho mb-3"
+        color="accent"
+        routerLink="/usuarios"
+      >
+        Cancelar <mat-icon class="icon-pull-right">cancel</mat-icon>
+      </button>
+    </form>
+  </mat-card>
+</div>

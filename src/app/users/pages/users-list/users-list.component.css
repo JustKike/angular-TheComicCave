@@ -1,0 +1,58 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("../../../../assets/img/Rorschach-fondo.jpg"); */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../../../../assets/img/comic-book5.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.seleccion:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    border-color: rgb(251, 251, 251);
+    border-style: outset;
+    box-shadow: 0 4px 17px rgb(253, 253, 252);
+    opacity: 1;
+}
+
+.seleccion:not(.highlight-card):hover .imagen-hover {
+    filter: blur(0px);
+    transform: translateY(-3px);
+    border-color: rgb(251, 251, 251);
+    border-style: outset;
+    box-shadow: 0 4px 17px rgb(253, 253, 252);
+}
+.filter-box{
+    opacity: 0.9;
+}
+
+/* Table Structure */
+table {
+width: 100%;
+margin: 3px;
+
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.centrado{
+    align-items: center;
+}
+
+#texto-ellipsis {
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

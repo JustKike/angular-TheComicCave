@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+.body {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("../../../../assets/img/Rorschach-fondo.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 8px 0;
+}
+
+p {
+    margin: 0;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.toolbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #cecece;
+    color: rgb(106, 17, 17);
+    font-weight: 600;
+}
+
+.seleccion:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.centrado {
+    width: 100%;
+    margin: 3px;
+}
+
+.card{
+    padding: 20px;
+    width:80%;
+}

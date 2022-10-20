@@ -11,7 +11,7 @@
 
   <mat-card class="login seleccion mb-3" *ngIf="!loading">
     <form [formGroup]="formEdit" (ngSubmit)="editar(formEdit.value)">
-      <div class="container mb-3">
+      <!-- <div class="container mb-3">
         <img
           [src]="currentImage || defaultImage"
           class="card-img-top imagen img-avatar imagen-blur imagen-hover rounded-circle mt-3"
@@ -30,7 +30,7 @@
           (change)="handleImage($any($event).target.files[0])"
           #selectFile
         />
-      </div>
+      </div> -->
       <!-- nombre input -->
       <mat-form-field class="ancho mt-2" appearance="fill">
         <mat-label><b>Nombre</b></mat-label>

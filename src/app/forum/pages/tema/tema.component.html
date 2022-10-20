@@ -1,1 +1,25 @@
-<p>tema works!</p>
+<div class="body" *ngIf="post">
+  <div class="card w-75 seleccion">
+    <div class="card-header bg-dark text-white text-center">
+      <h1>{{ post.title }}</h1>
+    </div>
+    <div class="card-body text-center">
+      <h4 class="card-title">
+        posted by {{ post.author }} &bull;
+        {{ post.published.toDate() | date: "medium" }}
+      </h4>
+      <p class="card-text">
+        {{ post.content }}
+      </p>
+      <a
+        name=""
+        id=""
+        class="btn btn-primary mt-3 float-end"
+        href="#"
+        role="button"
+        routerLink="/foro"
+        >Atras</a
+      >
+    </div>
+  </div>
+</div>

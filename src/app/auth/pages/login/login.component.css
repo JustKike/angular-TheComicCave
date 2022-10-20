@@ -1,11 +1,16 @@
 .body{
-    display: flex;
+display: flex;
     justify-content: center;
-    height: 100%;
     align-items: center;
-    background-image: url('../../../../assets/img/comic-book3.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../../../../assets/img/comic-book3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
 }
 .login{
+    margin: 0 auto;
     width: 100%;
     max-width: 330px;
     text-align: center;

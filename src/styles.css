@@ -1,20 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  display:grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
 
 .example-spacer {
     flex: 1 1 auto;
 }
 
+
 /* Footer */
 .footer{
-    padding: 20px 0;
-    background: #252525;
     position: fixed;
     bottom: 0;
+    background: #252525;
+    text-align: center;
+    padding: 10px;
     width: 100%;
-    height: 50px;
+    /* height: 50px; */
     color:white;
 }
 .chat-box{

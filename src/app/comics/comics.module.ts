@@ -13,6 +13,7 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { EditarComponent } from './pages/editar/editar.component';
 import { ListarComponent } from './pages/listar/listar.component';
 import { ComicComponent } from './pages/comic/comic.component';
+import { MainComponent } from './pages/main/main.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ComicComponent } from './pages/comic/comic.component';
     AgregarComponent,
     EditarComponent,
     ListarComponent,
-    ComicComponent
+    ComicComponent,
+    MainComponent
   ],
   imports: [
     CommonModule,

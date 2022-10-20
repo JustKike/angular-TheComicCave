@@ -4,16 +4,18 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { ComicComponent } from './pages/comic/comic.component';
 import { EditarComponent } from './pages/editar/editar.component';
 import { ListarComponent } from './pages/listar/listar.component';
+import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
       { path: 'agregar', component: AgregarComponent },
+      { path: 'main', component: MainComponent },
       { path: 'editar', component: EditarComponent },
       { path: 'listar', component: ListarComponent },
       { path: 'comic', component: ComicComponent },
-      { path: '**', redirectTo: 'listar' },
+      { path: '**', redirectTo: 'main' },
     ]
   }
 ];

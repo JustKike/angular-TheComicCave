@@ -19,6 +19,7 @@ import { ChatService } from './providers/chat.service';
 import { LoginService } from './providers/login.service';
 import { InteractionService } from './providers/interaction.service';
 import { UsersService } from './providers/users.service';
+import { ForumService } from './providers/forum.service';
 
 
 //Angular Material
@@ -90,7 +91,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ChatService,
     LoginService,
     UsersService,
-    InteractionService
+    InteractionService,
+    ForumService
   ]
 })
 export class SharedModule { }

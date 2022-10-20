@@ -10,10 +10,10 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'nuevo-tema', component: NuevoComponent },
-      { path: 'editar-tema', component: EditarComponent },
+      { path: 'editar-tema/:id', component: EditarComponent },
       { path: 'listar-temas', component: ListarComponent },
-      { path: 'tema', component: TemaComponent },
-      { path: '**', redirectTo: 'listar-temas' },
+      { path: 'post/:id', component: TemaComponent },
+      { path: '**', redirectTo: 'listar-temas', pathMatch: 'full' },
 
     ]
   }

@@ -43,6 +43,7 @@ export class UsersListComponent implements OnInit {
     this._us.getAllusers().subscribe(res =>
       this.dataSource.data = res
     );
+    console.log('estos son los datos para la tabla -> ', this.dataSource.data);
   }
   //para sortear los datos
   ngAfterViewInit() {

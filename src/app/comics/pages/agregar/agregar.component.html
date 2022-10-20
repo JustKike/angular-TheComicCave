@@ -1,1 +1,44 @@
-<p>agregar works!</p>
+<div class="toolbar" role="banner">
+  <div class="mx-3"></div>
+  <span>Bienvenido a The ComicCave</span>
+  <div class="spacer"></div>
+  <h2>Agregar Comics</h2>
+  <div class="mx-3"></div>
+</div>
+<div class="body">
+  <div class="card w-50 seleccion">
+    <div class="container w-50">
+      <img src="./assets/img/comic-book6.jpg" class="card-img-top" alt="..." />
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="" class="form-label">Titulo</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder="Escribe el titulo"
+          autocomplete="off"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Descripcion</label>
+        <textarea
+          class="form-control"
+          name=""
+          id=""
+          rows="3"
+          placeholder="Descripcion"
+        ></textarea>
+      </div>
+      <div class="btn-group container" role="group" aria-label="">
+        <button type="submit" class="btn btn-success">Agregar</button>
+        <button type="button" routerLink="/listar" class="btn btn-primary">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

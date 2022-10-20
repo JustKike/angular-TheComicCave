@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs'
+import { PostInt } from 'src/app/shared/interface/post.interface';
+import { ForumService } from '../../../shared/providers/forum.service';
 
 @Component({
   selector: 'app-listar',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listar.component.css']
 })
 export class ListarComponent implements OnInit {
+  posts!: Observable<PostInt[]>;
 
-  constructor() { }
+  constructor(
+    private _ps: ForumService,
+  ) { }
 
   ngOnInit(): void {
+    this.posts = this._ps.getPosts();
   }
+
 
 }

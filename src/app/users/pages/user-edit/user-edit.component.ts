@@ -111,35 +111,4 @@ export class UserEditComponent implements OnInit {
     }
   }
 
-  // register() {
-  //   if (this.formRegister.valid) {
-  //     //Si la hay mandamos los datos del registro a BD 'users'
-  //     if (!this.UID) {
-  //       return
-  //     } else {
-  //       const path = 'users';
-  //       const id = this.UID;
-  //       this.formRegister.value.uid = id;
-  //       this.formRegister.value.password = null;
-  //       this._us.createDoc(this.formRegister.value, path, id)
-  //         .then(() => {
-  //           var response = 'Datos de perfil registrados con exito';
-  //           //animacion
-  //           this.loading = true;
-  //           setTimeout(() => {
-  //             this.formRegister.reset();
-  //             //redireccion a pagina principal
-  //             this.router.navigate(['/comics']);
-  //             //msj
-  //             this._interaction.mensaje(response);
-  //           }, 1500)
-  //         })
-  //         .catch(error => {
-  //           console.log(error);
-  //           this._interaction.mensajeError(error.message);
-  //         });
-  //     }
-  //   }
-  // }
-
 }
